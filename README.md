@@ -144,6 +144,16 @@ Alternatively, send an mqtt message to `monitor/setup/ADD STATIC DEVICE` with a 
 
 Use, `monitor/setup/DELETE STATIC DEVICE` with a message containing a mac address to remove a device from all `monitor` nodes.
 
+The home assistant mqtt integration GUI, under **Publish a packet** can be laid out like below:
+```
+  topic
+  monitor/setup/ADD STATIC DEVICE
+    
+  Payload (template allowed)
+  00:11:22:33:44:55 alias
+```
+Then press **PUBLISH** to perform the action.
+
 5. Read helpfile:
 
 ```bash
