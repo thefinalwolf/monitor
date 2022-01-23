@@ -74,7 +74,7 @@ sudo reboot
 5. Install Bluetooth Firmware, if necessary:
 ```bash
 #install Bluetooth drivers for Pi Zero W
-sudo apt-get install pi-bluetooth
+sudo apt install pi-bluetooth -y
 
 ```
 
@@ -85,21 +85,7 @@ sudo reboot
 
 7. Install Mosquitto 1.5+ **(important step!)**:
 ```bash
-
-# get repo key
-wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
-
-#add repo
-sudo apt-key add mosquitto-repo.gpg.key
-
-#download appropriate lists file 
-cd /etc/apt/sources.list.d/
-sudo wget http://repo.mosquitto.org/debian/mosquitto-buster.list
-
-#update caches and install 
-apt-cache search mosquitto
-sudo apt-get update
-sudo apt-get install -f libmosquitto-dev mosquitto mosquitto-clients libmosquitto1
+sudo apt install -f libmosquitto-dev mosquitto mosquitto-clients libmosquitto1 -y
 ```
 </details>
 
@@ -111,7 +97,7 @@ sudo apt-get install -f libmosquitto-dev mosquitto mosquitto-clients libmosquitt
 ```bash
 #install git
 cd ~
-sudo apt-get install git
+sudo apt install git -y
 
 #clone this repo
 git clone git://github.com/andrewjfreyer/monitor
@@ -128,7 +114,11 @@ git checkout beta
 
 Configuration files will be created with default preferences. Any executables that are not installed will be reported. All can be installed via `apt-get install ...`
 
-```bash 
+```bash
+# Common packages usually missing
+sudo apt install -y bluez-hcidump bc
+
+# Main script
 sudo bash monitor.sh
 ```
 
