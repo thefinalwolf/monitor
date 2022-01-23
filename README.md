@@ -37,10 +37,17 @@ country=US
 network={
     ssid="Your Network Name"
     psk="Your Network Password"
-    key_mgmt=WPA-PSK
 }
 ```
-
+*Note:* Alternatively, to use an encrypted version of your password do the following in Linux:
+```bash
+    # create a file and put your password inside; takes care of odd passwords and better than having password in History
+    nano password.txt
+    # pipe the contents into wpa_passphrase
+    wpa_passphrase "Your Network Name" < password.txt
+    # paste the output, minus the commented password, into wpa_supplicant.conf
+```
+    
  7. **On the first startup,** insert SD card and power on Raspberry Pi Zero W. On first boot, the newly-created **wpa_supplicant.conf** file and **ssh** will be moved to appropriate directories. Find the IP address of the Pi via your router. 
 
 ## Configuration and Setup
